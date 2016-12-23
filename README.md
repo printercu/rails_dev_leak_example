@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- `rails s` or `PATCH=true rails s`
+- `ab -c1 -n100 http://localhost:3000`
 
-Things you may want to cover:
+## Results
 
-* Ruby version
+```
+Without patch:
 
-* System dependencies
+Heap slots: 337292/448763
+# ... constantly increasing
+Heap slots: 347697/448763
 
-* Configuration
+With patch:
 
-* Database creation
+Heap slots: 337332/441030
+# in 5 requests get to
+Heap slots: 338240/441030
+# and doesn't change much anymore (+/-10)
+# Doesn't change at all for small templates.
 
-* Database initialization
+```
 
-* How to run the test suite
+## License
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+MIT
